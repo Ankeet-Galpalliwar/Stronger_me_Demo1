@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<p>Thymeleaf Page...!</p>
+	<br>
+	<h3 th:text="${name}"></h3>
+	<h2 th:text="${Date}"></h2>
+	<br>
+	<br>
+	<div th:with="a=${a},b=${b},n=${name},date=${Date}">
+	
+		<h1 th:text="'Add of a '+${a}+' and b '+${b}+' is '+${a}+${b}"></h1>
+		<br>
+		<br>
+		<h2 th:text="'Add of a' + a +' and b '+ b +' is '+${a+b}"></h2>
+		
+		<h1 th:text=" ${names}"></h1><br>
+		<ul>
+		<li th:each="n,status:${list}">
+		<span th:text="${status.index} +' '+${n}"></span>
+		<span th:text="${status.count} +' '+${n}"></span>
+		<span th:text="${status.even} +' '+${n}"></span>
+		<span th:text="${status.first} +' '+${n}"></span>
+		</li>
+		</ul>
+		<br>
+		<ul>
+		<li th:each="n,status:${list}">
+		<span th:style="${status.last}?'colour:red':'colour:yellow'" th:text="${status.index}+''+${n}"></span>
+		</li>
+		</ul>
+		
+
+	</div>
+</body>
+</html>
